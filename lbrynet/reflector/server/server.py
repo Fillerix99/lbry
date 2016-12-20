@@ -110,7 +110,6 @@ class ReflectorServer(Protocol):
             log.debug('Recieved info for blob: %s', request_dict['blob_hash'])
             d = self.blob_manager.get_blob(
                 request_dict['blob_hash'],
-                True,
                 int(request_dict['blob_size'])
             )
             d.addCallback(self.determine_blob_needed)

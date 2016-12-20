@@ -77,13 +77,12 @@ class HashBlobWriter(object):
 class HashBlob(object):
     """A chunk of data available on the network which is specified by a hashsum"""
 
-    def __init__(self, blob_hash, upload_allowed, length=None):
+    def __init__(self, blob_hash, length=None):
         self.blob_hash = blob_hash
         self.length = length
         self.writers = {}  # {Peer: writer, finished_deferred}
         self.finished_deferred = None
         self.verified = False
-        self.upload_allowed = upload_allowed
         self.readers = 0
 
     def set_length(self, length):
