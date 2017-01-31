@@ -98,7 +98,7 @@ class TestReflector(unittest.TestCase):
             dht_node_class=Node
         )
 
-        self.stream_info_manager = EncryptedFileMetadataManager.TempEncryptedFileMetadataManager()
+        self.stream_info_manager = EncryptedFileMetadataManager.DBEncryptedFileMetadataManager(db_dir)
 
         self.lbry_file_manager = EncryptedFileManager.EncryptedFileManager(
             self.session, self.stream_info_manager, sd_identifier)
